@@ -17,7 +17,7 @@
         <img src={Logo} alt="Logo">
       </a>
       
-      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbar" on:click={toggleMenu} class:is-active={openMenu}>
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbar" on:click={toggleMenu} on:keydown={toggleMenu} class:is-active={openMenu} tabindex="0">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
