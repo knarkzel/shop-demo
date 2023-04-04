@@ -24,20 +24,6 @@
       </a>
     </div>
     <div id="navbar" class="navbar-menu" class:is-active={openMenu}>
-      <div class="navbar-start">
-        <a href="/books" class="navbar-item">
-          Books
-        </a>
-        
-        <a href="/clothes" class="navbar-item">
-          Clothes
-        </a>
-        
-        <a href="/perfumes" class="navbar-item">
-          Perfumes
-        </a>
-      </div>
-
       <div class="navbar-end">
         <a href="/cart" class="navbar-item">
           <span class="icon-text">

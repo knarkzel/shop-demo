@@ -3,10 +3,10 @@
 </script>
 
 <svelte:head>
-  <title>oddharald.xyz</title>
+  <title>Shop</title>
 </svelte:head>
 
-<h1 class="title">Welcome to my shop!</h1>
+<h1 class="title">Welcome to the shop!</h1>
 <div class="image is-3by1">
   <img src={Cover} alt="Cover" />
 </div>

@@ -27,7 +27,7 @@
     </div>
     
     <div class="field">
-      <button class="button is-info is-fullwidth">
+      <button class="button is-link is-fullwidth">
         Register
       </button>
     </div>
