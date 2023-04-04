@@ -1,38 +1,68 @@
 <script lang="ts">
   import Logo from "../static/logo.png";
   import { UserIcon, ShoppingCartIcon, SearchIcon } from "svelte-feather-icons";
+
+  // Menu logic
+  let openMenu = false;
+
+  function toggleMenu() {
+    openMenu = !openMenu;
+  }
 </script>
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar" aria-label="main navigation">
   <div class="container">
     <div class="navbar-brand">
-      <a class="navbar-item box p-4 m-4" href="/">
+      <a id="logo" class="navbar-item p-4 m-4" href="/">
         <img src={Logo} alt="Logo">
       </a>
-      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbar">
+      
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbar" on:click={toggleMenu} class:is-active={openMenu}>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </a>
     </div>
-    <div id="navbar" class="navbar-menu">
+    <div id="navbar" class="navbar-menu" class:is-active={openMenu}>
       <div class="navbar-start">
         <a href="/books" class="navbar-item">
           Books
         </a>
+        
         <a href="/clothes" class="navbar-item">
           Clothes
         </a>
+        
         <a href="/perfumes" class="navbar-item">
           Perfumes
         </a>
       </div>
-    </div>
 
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          <div class="field mt-2 mr-4">
+      <div class="navbar-end">
+        <a href="#" class="navbar-item">
+          <span class="icon-text">
+            <span class="icon">
+              <ShoppingCartIcon />
+            </span>
+            <span>
+              Cart
+            </span>
+          </span>
+        </a>        
+
+        <a href="#" class="navbar-item">
+          <span class="icon-text">
+            <span class="icon">
+              <UserIcon />
+            </span>
+            <span>
+              Account
+            </span>
+          </span>
+        </a>        
+
+        <div class="navbar-item">
+          <div class="field">
             <p class="control has-icons-left">
               <input class="input" type="search" placeholder="Search">
               <span class="icon is-left">
@@ -40,20 +70,16 @@
               </span>
             </p>
           </div>
-
-          <a href="#">
-            <span class="icon mr-2">
-              <ShoppingCartIcon />
-            </span>
-          </a>
-
-          <a href="#">
-            <span class="icon ml-2">
-              <UserIcon />
-            </span>
-          </a>
         </div>
       </div>
+
+
     </div>
   </div>
 </nav>
+
+<style>
+  #logo {
+    outline: 2px solid black;
+  }
+</style>
