@@ -4,7 +4,7 @@
 </script>
 
 <NavBar />
-<main>
+<main class="container p-2">
   <slot/>
 </main>
 

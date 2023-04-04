@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Logo from "../static/logo.png";
+  import Logo from "../logo.png";
   import { UserIcon, ShoppingCartIcon, SearchIcon } from "svelte-feather-icons";
 
   // Menu logic
@@ -39,7 +39,7 @@
       </div>
 
       <div class="navbar-end">
-        <a href="#" class="navbar-item">
+        <a href="/cart" class="navbar-item">
           <span class="icon-text">
             <span class="icon">
               <ShoppingCartIcon />
@@ -50,7 +50,7 @@
           </span>
         </a>        
 
-        <a href="#" class="navbar-item">
+        <a href="/account" class="navbar-item">
           <span class="icon-text">
             <span class="icon">
               <UserIcon />
@@ -63,17 +63,15 @@
 
         <div class="navbar-item">
           <div class="field">
-            <p class="control has-icons-left">
-              <input class="input" type="search" placeholder="Search">
+            <form class="control has-icons-left" action="/search">
+              <input class="input" type="search" name="query" placeholder="Search" />
               <span class="icon is-left">
                 <SearchIcon />
               </span>
-            </p>
+            </form>
           </div>
         </div>
       </div>
-
-
     </div>
   </div>
 </nav>
