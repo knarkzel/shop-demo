@@ -50,7 +50,7 @@
           </span>
         </a>        
 
-        <a href="/account" class="navbar-item">
+        <a href="/account/login" class="navbar-item">
           <span class="icon-text">
             <span class="icon">
               <UserIcon />
