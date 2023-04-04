@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-  <title>Shop</title>
+  <title>oddharald.xyz</title>
 </svelte:head>
 
 <h1 class="title">Welcome to the shop!</h1>

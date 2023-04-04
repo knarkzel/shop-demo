@@ -24,6 +24,12 @@
       </a>
     </div>
     <div id="navbar" class="navbar-menu" class:is-active={openMenu}>
+      <div class="navbar-start">
+        <a href="/product/add" class="navbar-item" >
+          Add product
+        </a>
+      </div>
+      
       <div class="navbar-end">
         <a href="/cart" class="navbar-item">
           <span class="icon-text">
@@ -36,7 +42,7 @@
           </span>
         </a>        
 
-        <a href="/account/login" class="navbar-item">
+        <a href="/account/signin" class="navbar-item">
           <span class="icon-text">
             <span class="icon">
               <UserIcon />

@@ -28,11 +28,11 @@
     
     <div class="field">
       <button class="button is-success is-fullwidth">
-        Login
+        Sign in
       </button>
     </div>
   </form>
 
-  <p class="mt-4 has-text-centered">Don't have an account? <a href="/account/register">Create new account</a></p>
+  <p class="mt-4 has-text-centered">Don't have an account? <a href="/account/signup">Create new account</a></p>
 </div>
 

@@ -22,6 +22,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"bulma": "^0.9.4"
+		"bulma": "^0.9.4",
+		"pocketbase": "^0.13.1"
 	}
 }
