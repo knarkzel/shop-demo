@@ -1,5 +1,6 @@
 <script lang="ts">
-  import Logo from "../logo.png";
+  import LogoPng from "../photos/logo.png";
+  import LogoAvif from "../photos/logo.avif";
   import { UserIcon, ShoppingCartIcon, SearchIcon } from "svelte-feather-icons";
 
   // Menu logic
@@ -14,7 +15,10 @@
   <div class="container">
     <div class="navbar-brand">
       <a id="logo" class="navbar-item p-4 m-4" href="/">
-        <img src={Logo} alt="Logo">
+        <picture class="image">
+          <source srcset={LogoAvif} type="image/avif">
+          <img width="66" height="28" src={LogoPng} alt="Logo" />
+        </picture>
       </a>
       
       <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbar" on:click={toggleMenu} on:keydown={toggleMenu} class:is-active={openMenu} tabindex="0">
@@ -23,6 +27,7 @@
         <span aria-hidden="true"></span>
       </a>
     </div>
+    
     <div id="navbar" class="navbar-menu" class:is-active={openMenu}>
       <div class="navbar-start">
         <a href="/product/add" class="navbar-item" >

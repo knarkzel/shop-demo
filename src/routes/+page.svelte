@@ -1,5 +1,6 @@
 <script lang="ts">
-  import Cover from "../cover.jpg";
+  import CoverJpg from "../photos/cover.jpg";
+  import CoverAvif from "../photos/cover.avif";
 </script>
 
 <svelte:head>
@@ -7,6 +8,7 @@
 </svelte:head>
 
 <h1 class="title">Welcome to the shop!</h1>
-<div class="image is-3by1">
-  <img src={Cover} alt="Cover" />
-</div>
+<picture class="image">
+  <source srcset={CoverAvif} type="image/avif">
+  <img width="1328" height="424" src={CoverJpg} alt="Cover" />
+</picture>
