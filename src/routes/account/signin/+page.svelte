@@ -2,17 +2,19 @@
   import { MailIcon, KeyIcon } from "svelte-feather-icons";
   import { applyAction, enhance } from '$app/forms';
   import { pb } from '$lib/pocketbase';
+
+  function formEnhance() {
+    return async ({result}) => {
+      pb.authStore.loadFromCookie(document.cookie);
+      await applyAction(result);
+    }
+  }
 </script>
 
 <h1 class="title">Sign in</h1>
 
 <div class="box">
-  <form method="POST" use:enhance={() => {
-    return async ({result}) => {
-      pb.authStore.loadFromCookie(document.cookie);
-      await applyAction(result);
-    }
-    }}>
+  <form method="POST" use:enhance={formEnhance}>
     <div class="field">
       <label for="" class="label">Email</label>
       <div class="control has-icons-left">
