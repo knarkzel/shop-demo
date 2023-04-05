@@ -1,14 +1,18 @@
 <script lang="ts">
   import LogoPng from "../photos/logo.png";
   import LogoAvif from "../photos/logo.avif";
-  import { UserIcon, ShoppingCartIcon, SearchIcon } from "svelte-feather-icons";
-
+  import { UserIcon, ShoppingCartIcon, SearchIcon, LogOutIcon } from "svelte-feather-icons";
+  
   // Menu logic
   let openMenu = false;
 
   function toggleMenu() {
     openMenu = !openMenu;
   }
+
+  // User logic
+  import { applyAction, enhance } from '$app/forms';
+  import { pb, currentUser } from '$lib/pocketbase';
 </script>
 
 <nav class="navbar" aria-label="main navigation">
@@ -45,19 +49,38 @@
               Cart
             </span>
           </span>
-        </a>        
+        </a>
 
-        <a href="/account/signin" class="navbar-item">
-          <span class="icon-text">
-            <span class="icon">
-              <UserIcon />
+        {#if $currentUser}
+          <form method="POST" action="/account/logout" class="navbar-item" use:enhance={() => {
+            return async ({result}) => {
+            pb.authStore.clear();
+            await applyAction(result);
+            }}}>
+            <button>
+              <span class="icon-text">
+                <span class="icon">
+                  <LogOutIcon />
+                </span>
+                <span>
+                  Logout
+                </span>
+              </span>            
+            </button>
+          </form>
+        {:else}
+          <a href="/account/signin" class="navbar-item">
+            <span class="icon-text">
+              <span class="icon">
+                <UserIcon />
+              </span>
+              <span>
+                Account
+              </span>
             </span>
-            <span>
-              Account
-            </span>
-          </span>
-        </a>        
-
+          </a>        
+        {/if}
+        
         <div class="navbar-item">
           <div class="field">
             <form class="control has-icons-left" action="/search">
