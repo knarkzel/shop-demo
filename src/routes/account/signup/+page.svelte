@@ -1,9 +1,13 @@
 <script lang="ts">
-  import { MailIcon, KeyIcon } from 'svelte-feather-icons';
-  import { applyAction, enhance } from '$app/forms';
-  import { pb } from '$lib/pocketbase';
+  import { MailIcon, KeyIcon } from "svelte-feather-icons";
+  import { applyAction, enhance } from "$app/forms";
+  import { pb } from "$lib/pocketbase";
 
+  // Loading logic
+  let loading = false;
+  
   function formEnhance() {
+    loading = true;
     return async ({result}) => {
       pb.authStore.loadFromCookie(document.cookie);
       await applyAction(result);
@@ -46,7 +50,7 @@
     </div>
     
     <div class="field">
-      <button class="button is-link is-fullwidth" type="submit">
+      <button class="button is-link is-fullwidth" class:is-loading={loading}>
         Sign up
       </button>
     </div>

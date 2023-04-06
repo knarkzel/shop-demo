@@ -3,12 +3,17 @@
   import { applyAction, enhance } from '$app/forms';
   import { pb } from '$lib/pocketbase';
 
+  // Loading logic
+  let loading = false;
+  
   function formEnhance() {
+    loading = true;
     return async ({result}) => {
       pb.authStore.loadFromCookie(document.cookie);
       await applyAction(result);
     }
   }
+
 </script>
 
 <h1 class="title">Sign in</h1>
@@ -36,7 +41,7 @@
     </div>
     
     <div class="field">
-      <button class="button is-success is-fullwidth">
+      <button class="button is-success is-fullwidth" class:is-loading={loading}>
         Sign in
       </button>
     </div>

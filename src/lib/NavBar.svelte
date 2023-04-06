@@ -1,7 +1,7 @@
 <script lang="ts">
   import LogoPng from "../photos/logo.png";
   import LogoAvif from "../photos/logo.avif";
-  import { currentUser } from '$lib/pocketbase';
+  import { currentUser } from "$lib/pocketbase";
   import { UserIcon, ShoppingCartIcon, SearchIcon } from "svelte-feather-icons";
   
   // Menu logic

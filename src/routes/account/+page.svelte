@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { pb } from '$lib/pocketbase';
-  import { applyAction, enhance } from '$app/forms';
+  import { pb } from "$lib/pocketbase";
+  import { applyAction, enhance } from "$app/forms";
   import { LogOutIcon } from "svelte-feather-icons";
 
   function formEnhance() {
