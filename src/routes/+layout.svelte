@@ -8,3 +8,8 @@
   <slot/>
 </main>
 
+<style>
+  main {
+    margin-bottom: 10em;
+  }
+</style>
