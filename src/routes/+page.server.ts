@@ -1,8 +1,10 @@
-import { pb } from "$lib/pocketbase";
+import { stripe } from "$lib/server/stripe";
 
 export async function load() {
-  const products = await pb.collection("products").getFullList();
+  const products = await stripe.products.list({
+    expand: ["data.default_price"]
+  });
   return {
-    products: structuredClone(products)
+    products: products.data
   }
 }

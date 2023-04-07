@@ -2,6 +2,7 @@ import { redirect, type Actions } from "@sveltejs/kit";
 
 export const actions: Actions = {
   default: async ({ locals, request }) => {
+    // Get form data
     const data = Object.fromEntries(await request.formData()) as {
       email: string;
       password: string;
@@ -9,15 +10,15 @@ export const actions: Actions = {
     };
 
     try {
+      // Create user then login
       await locals.pb.collection("users").create(data);
       await locals.pb
         .collection("users")
         .authWithPassword(data.email, data.password);
-    } catch (e) {
-      console.error(e);
-      throw e;
+    } catch (error) {
+      console.error(error);
+      throw error;
     }
-
     throw redirect(303, "/");
   },
 };
